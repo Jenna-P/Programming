@@ -8,9 +8,12 @@ package Uge44;
     (Hint: se på enums .values() metode, som returnerer en array)
     Ekstra: omskriv opgaven, så farvearray med Y elementer bliver til en ArrayList i stedet for en array.*/
 
+import java.util.ArrayList;
+
 public class ColourInArray {
 
     public static void main(String[] args) {
+
 
         final String[] X = new String[7];
         X[0] = "Red";
@@ -21,11 +24,16 @@ public class ColourInArray {
         X[5] = "Yellow";
         X[6] = "Brown";
 
-        final String[] Y = {X[0], X[3], X[5]};
+        //final String[] Y = {X[0], X[3], X[5]};
+        ArrayList Y = new ArrayList();
+        Y.add(0, X[0]);
+        Y.add(1, X[3]);
+        Y.add(2, X[5]);
+
         final String Z = "Black";
 
 
-        for (String c : Y) {
+        for (Object c : Y) {   //Y: Stringtype Array : for(String c : Y)
             if (c.equals(Z))
                 System.out.println(Z);
 
@@ -34,8 +42,6 @@ public class ColourInArray {
         EnumColour.callenum();
 
     }
-
-
 
     public class Colour {
         String[] colours = {"Red", "Blue", "White", "Black", "Green", "Yellow", "Brown"};
@@ -46,7 +52,7 @@ public class ColourInArray {
         String R = colour.colours[0];
         System.out.println(R);
     }
-    
+
     public enum EnumColour {
        Red, Blue, White, Black, Green, Yellow, Brown ;
 
